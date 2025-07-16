@@ -118,7 +118,7 @@ namespace KWADTool.KwadFormat
 
         public class Animation
         {
-            public int NameHash { get; private set; }
+            public uint NameHash { get; private set; }
             
             private readonly char[] name;
             public char[] GetName()
@@ -139,7 +139,7 @@ namespace KWADTool.KwadFormat
 
             public Animation(BinaryReader reader)
             {
-                NameHash = reader.ReadInt32();
+                NameHash = reader.ReadUInt32();
                 name = reader.ReadChars(20);
                 RootSymbolHash = reader.ReadUInt32();
                 FrameRate = reader.ReadSingle();

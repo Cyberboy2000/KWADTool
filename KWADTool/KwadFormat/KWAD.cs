@@ -53,6 +53,8 @@ namespace KWADTool.KwadFormat
             FileSize = reader.ReadUInt32();
             SlabCount = reader.ReadUInt32();
 
+            System.Console.WriteLine(System.String.Format("Version {0} {1} {2}", Version, FileSize, SlabCount));
+
             var resouceInfoListCount = reader.ReadUInt32();
             for (int i = 0; i < resouceInfoListCount; i++)
             {
@@ -81,6 +83,7 @@ namespace KWADTool.KwadFormat
                         // Do not parse animation types since thay have a lot of differences with KWAD version 2
                         else if (resInfo.GetType().SequenceEqual(KLEIAnimation.KLEI_TYPE))
                         {
+                            Console.WriteLine("Bad version");
                             return null;
                         }
                     }
